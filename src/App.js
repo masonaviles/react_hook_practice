@@ -1,22 +1,27 @@
-import logo from './logo.svg';
+// import useState so we can use this hook
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  // assign the hook to a const and then pass in the initial value in useState
+  // [ 0(initial value that is passed in useState), function ]
+  const [ score, setScore ] = useState(0);
+
+  // useState returns an array with two values
+  // 1. The first array element is a variable with the current state value (0 in this case). similar to this.state
+  // 2. The second element is a function to update that value, and it's similar to this.setState()
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Welcome!</h1>
+        {/* use the new piece of state we made, called via variable name, score */}
+        <h2>{ score }</h2>
+        <button onClick={ () => setScore( score + 1) }>
+          Increase your score
+        </button>
       </header>
     </div>
   );
