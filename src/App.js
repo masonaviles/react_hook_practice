@@ -9,9 +9,13 @@ function App() {
   const [ score, setScore ] = useState(0);
   const [ message, setMessage ] = useState('Welcome!');
 
+   // ** State Hooks:
   // useState returns an array with two values
   // 1. The first array element is a variable with the current state value (0 in this case). similar to this.state
   // 2. The second element is a function to update that value, and it's similar to this.setState()
+
+  // ** Lifecycle Hooks:
+  // If you’re familiar with React class lifecycle methods, you can think of useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined. -- React Docs
 
 
   return (
