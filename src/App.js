@@ -1,5 +1,5 @@
 // import useState so we can use this hook
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   // assign the hook to a const and then pass in the initial value in useState
   // [ 0(initial value that is passed in useState), function ]
   const [ score, setScore ] = useState(0);
-  const [ message, setMessage ] = useState('Welcome!');
+  const [ message ] = useState('Welcome!');
 
    // ** State Hooks:
   // useState returns an array with two values
@@ -16,6 +16,10 @@ function App() {
 
   // ** Lifecycle Hooks:
   // If you’re familiar with React class lifecycle methods, you can think of useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined. -- React Docs
+  // The effect happens after render, so it will run after state is changed each time like when the buttons are pressed
+  useEffect(() => {
+    document.title = `${message} Your score is ${score}`;
+  }, [message, score]); // pass an empty array to useEffect once done if nothing has changed, add dependencies when you have them
 
 
   return (
